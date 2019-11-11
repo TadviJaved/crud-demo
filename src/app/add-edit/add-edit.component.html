@@ -1,0 +1,37 @@
+<div *ngIf="isAdd;then addForm else editForm "></div>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12"><a href="#">Back</a></div>
+        </div>
+    </div>
+    <div class="container">
+            <div class="row">
+                <div class="col-12">
+                   <ng-template #addForm>
+                        <form name="form" #formAdd="ngForm" novalidate (ngSubmit)="addData(formAdd.value)">
+                                <div class="form-group">
+                                    <input type="text"  class="form-control" placeholder="Name" name="name" ngModel>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number"  class="form-control" placeholder="cost" name="cost" ngModel>
+                                </div>
+                                <button type="submit" class="btn btn-primary"> add</button>
+                        </form>
+                   </ng-template>
+                   <ng-template #editForm>
+                    <form name="form" #formUpdate1="ngForm" novalidate (ngSubmit)="formUpdate(formUpdate1.value)">
+                        <div class="form-group">
+                            <input type="text"  class="form-control" placeholder="Name1" name="name" [(ngModel)]="singleItem.name" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <input type="number"  class="form-control" placeholder="cost1" name="cost" [(ngModel)]="singleItem.cost" ngModel>
+                        </div>
+                        <button type="submit" class="btn btn-primary"> Update</button>
+                </form>
+                   </ng-template>
+                    
+                </div>
+            </div>
+        </div>
+</section>

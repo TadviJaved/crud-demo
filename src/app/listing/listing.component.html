@@ -1,0 +1,32 @@
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12"><a routerLink="add-item">Add Item</a></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                    <table>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Cost</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                            <tr *ngFor="let list of allItem;">
+                                <td>{{list.id}}</td>
+                                <td>{{list.name}}</td>
+                                <td>{{list.cost}}</td>
+                                <td><button [routerLink]="['add-item',list.id]">edit</button> </td>
+                                <td><a href="#" (click)='deleteItem(list.id)'> dlt</a> </td>
+                            </tr>
+                        </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
